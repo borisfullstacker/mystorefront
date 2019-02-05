@@ -1,0 +1,56 @@
+
+  <div class="paymentCont">
+  <h1  class="page-header">Payment</h1>
+  <form [formGroup]="orderFormGroup" (ngSubmit)="submit()">
+      <p>
+          <mat-form-field>
+              <input  type="text" matInput placeholder="City" required  formControlName="city" (dblclick)="inputUserData()" list="city">
+               <datalist id="city">
+                <select class="selectbox" placeholder="city" >
+                  <option value="" selected>  </option>
+                  <option *ngFor='let city of cities' [value]="city">
+                              {{city}}
+                  </option>
+               </select>
+              </datalist>
+            </mat-form-field>
+            
+      </p>
+      <div  *ngIf=submitted  class="errContainer">
+        <span>{{cityMsg}}</span>
+
+     </div>
+      <p>
+        <mat-form-field>
+          <input matInput placeholder="street" formControlName="street"  (dblclick)="inputUserData()" required>
+        </mat-form-field>
+      </p>
+      <p>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker" [min]="today" [matDatepickerFilter]="dateFilter"  formControlName="deliverydate"  placeholder="Choose a date" required>
+              <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+              <mat-datepicker  #picker></mat-datepicker>
+              <span  class="dateError" style="display:none">no available deliveries</span>
+
+          </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input matInput placeholder="credit card" formControlName="card"  (dblclick)="inputUserData()" required>
+        </mat-form-field>
+      </p>
+      <div *ngIf=submitted class="errContainer">
+        <span>{{cardMsg}}</span>
+      </div>
+
+      <button mat-stroked-button>Order</button>
+      <div class="loader" *ngIf="showLoader">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div class="errContainer2">
+        <span>{{PaymentErrorMsg}}</span>
+      </div>
+
+    </form>
+  </div>

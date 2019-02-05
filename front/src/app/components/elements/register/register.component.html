@@ -1,0 +1,128 @@
+<mat-horizontal-stepper linear #stepper>
+ 
+  <mat-step [stepControl]="firstFormGroup" editable="true"   [editable]="!startShopping" >
+    <form [formGroup]="firstFormGroup" (ngSubmit)="validate()"  >
+      <ng-template matStepLabel>Fill out user information</ng-template>
+      <mat-form-field>
+        <input type="text" class="id" matInput placeholder="ID" formControlName="id" required>
+        <div class="spinner" *ngIf="asyncLoader">
+          <mat-spinner [diameter]="spinner.width" [color]="spinner.color"></mat-spinner>
+        </div>
+        
+      </mat-form-field>
+      <div class="errContainer">
+         <span>{{idMsg}}</span>
+        <div *ngIf="submitted && f.id.errors">
+          <div *ngIf="f.id.errors.required"><span>ID is required</span></div>
+        </div>
+    </div>
+      <mat-form-field>
+        <input type="email" matInput placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          required>
+      </mat-form-field>
+     
+    <div class="errContainer">
+      <div *ngIf="submitted && f.email.errors">
+        <div *ngIf="f.email.errors.required"><span>Email is required</span></div>
+        <div *ngIf="f.email.errors.email"><span>Email must be a valid email address</span></div>
+      </div>
+    </div>
+
+
+    <mat-form-field>
+        <input type="password" matInput placeholder="Password" formControlName="password" required [ngClass]="{ 'is-invalid': f.password.required && f.password.errors }" />
+      </mat-form-field>
+      <div class="errContainer">
+        <div *ngIf="submitted && f.password.errors">
+          <span *ngIf="f.password.errors.minlength">password is too short</span>
+        </div>
+      </div>
+
+      <mat-form-field>
+        <input type="password" matInput placeholder="Repeat Password" formControlName="confirmPassword" [ngClass]="{ 'is-invalid': f.confirmPassword.required && f.confirmPassword.errors }"
+          required>
+      </mat-form-field>
+      <div class="errContainer">
+        <span>{{errMsg}}</span>
+        <div *ngIf="submitted && f.password.errors ">
+          <span *ngIf="f.confirmPassword.errors.required">password confirmation is necessary</span>
+        </div>
+ 
+      </div>
+      <div>
+        <button class="btn" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" editable="true" [editable]="!startShopping" >
+    <form [formGroup]="secondFormGroup" (ngSubmit)="validate2()">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Name" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input  type="text" matInput placeholder="Last Name" formControlName="lastname" required>
+      </mat-form-field>
+     
+      <mat-form-field>
+        <input  type="text" matInput placeholder="City" required  formControlName="city" list="city">
+         <datalist id="city">
+          <select class="selectbox" placeholder="city" >
+            <option value="" selected>  </option>
+            <option *ngFor='let city of cities' [value]="city">
+                        {{city}}
+            </option>
+         </select>
+        </datalist>
+      </mat-form-field>
+      <div class="errContainer">
+          <span>{{cityMsg}}</span>
+
+       </div>
+
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="street" required>
+      </mat-form-field>
+      <div>
+       <div class="errContainer" *ngIf="submitted2">
+          <span *ngIf="secondFormGroup.status==='INVALID'">Please complete all fields</span>
+       </div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+  <ng-template matStepLabel>Done</ng-template>
+
+   <div *ngIf="!startShopping" style="width: 500px;">
+    <h3>User Agreement</h3> 
+    <p>
+     Feel free to register!
+    </p>
+  </div>
+   <form>
+      <!-- -->
+    <div class="spinner2"  *ngIf="asyncRegisterLoader" >
+        <mat-spinner></mat-spinner>
+    </div>
+
+ 
+    <div class="success">
+         <h3  *ngIf="startShopping && registerErrMsg==''">Welcome to the family</h3>
+         <h3  *ngIf="startShopping && registerErrMsg==''"><small>You can now start shopping</small></h3>
+         <p>
+            {{registerErrMsg}}
+        </p>
+    </div>
+    <p class="btnCtr">
+      <button mat-button matStepperPrevious *ngIf="!startShopping && registerErrMsg==''">Back</button>
+      <button mat-button *ngIf="!startShopping" (click)="register()">Register</button>
+      <button mat-button [mat-dialog-close]="startShopping" *ngIf="startShopping">Close</button>
+      <!-- <button mat-button  *ngIf="startShopping  && registerErrMsg==''" (click)="clsoeAndStartSHopping()">Start</button> -->
+    </p>
+  </form>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,36 @@
+
+<p class="mycartCont">
+  My cart
+  <button (click)=deleteAll() *ngIf="!order" [disabled]="cartData.price==0" mat-button>clean cart</button>
+  <button mat-button (click)="backToShop()" *ngIf="order" class="backBtn">Back To Shop</button>
+</p>
+<div class="receiptCont">
+  <table>
+    <tbody>
+      <tr>
+        <th>name:</th>
+
+        <th>quantity:</th>
+
+        <th>price:</th>
+     
+      </tr>
+      <tr *ngFor='let product of cartData.receipt; let i = index' >
+        <td [innerHTML]="product.name | marker: productName">
+      
+        </td>
+        <td>
+          {{product.quantity}}
+        </td>
+        <td>
+          {{product.price}}
+        </td>
+        <span class="icon" *ngIf="!order" (click)=deleteCartItemById(product,i) ><i class="fas fa-minus-circle"></i></span>       
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p class="priceCont clearfix">
+  Total Price: {{cartData.price}}
+  <button mat-stroked-button  class="order" [disabled]="cartData.price==0"  *ngIf="!order" color="accent" (click)="activateOrder()">Order</button>
+</p>

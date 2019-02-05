@@ -1,0 +1,103 @@
+div> img{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+
+}
+
+.mainCont{
+ 
+    display: flex;
+    width: 400px;
+
+
+
+}
+
+
+.mainCont>div{
+    /* float: left; */
+    padding: 17px;
+    position: relative;
+ 
+    
+}
+
+.alert{
+    padding: 0;
+}
+
+.mat-dialog-content {
+    display: block;
+    margin: 0 -24px;
+    padding: 10px 10px;
+    max-height: 65vh;
+    overflow: unset;
+}
+
+.mainCont>div{
+    width: 100%!important;
+
+}
+
+
+.mainCont>div:hover .btnCont>button{
+    display: block;
+
+    
+}
+
+h3{
+    font-size: 20px;
+}
+
+
+.mainCont>div p{
+    margin: 0;
+
+
+}
+button{
+    margin-top: 10px;
+    width: 100%
+}
+
+.imgCont{
+    float: right;
+    width: 50%;
+}
+
+.textCont{
+    float: left;
+    width: 50%;
+    
+
+}
+
+form{
+    width: calc(100% - 30px)
+}
+
+
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+
+
+  @media only screen and (max-width: 990px) {
+    .mainCont{
+        width: inherit;
+        flex: none;
+        display: block;
+
+    }
+    form{
+        width: 100%;
+    }
+}

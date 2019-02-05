@@ -1,0 +1,57 @@
+.main{
+    height:100vh;
+    background-color: rgb(11, 128, 11);
+}
+
+.main>div{
+    height: 100%;
+    width: 100%;
+    background:lightblue url("http://localhost:3000/images/bg/photo-1481480512736-8798372eaf4a.jpg") no-repeat center center;
+    background-size: cover;
+    background-position-x: -216px;
+
+
+    
+}
+
+h3{
+    padding-left: 10px;
+    padding-top: 389px;
+    font-size: 40px;
+    color: #fff9d0;
+    text-shadow: 1px 1px black;
+    line-height: 40px;
+    font-weight: 700;
+
+}
+
+p{
+    margin-top: 142px;
+    padding-left: 10px;
+    line-height: 30px;
+    color: #fff9d0;
+    font-size: 25px;
+    text-shadow: 1px 1px black;
+    font-weight: bolder;
+
+}
+
+
+@media only screen and (max-width: 990px) {
+    p{
+        margin-top: 20px;
+
+    }
+
+ 
+ }
+
+ 
+
+@media only screen and (max-width: 770px) {
+    p{
+        margin-top: 142px;
+    }
+
+ 
+ }

@@ -1,0 +1,88 @@
+mat-form-field{
+    display: block;
+}
+
+
+
+.mat-form-field{
+    padding-bottom:5px;
+}
+
+form {
+    width: 337px;
+    margin: 0 auto;
+    position: relative;
+}
+
+mat-horizontal-content-container {
+    overflow: hidden;
+    padding: 0 0 0 0;
+}
+
+.btn{
+    margin-top:50px;
+}
+
+.id{
+    position: relative;
+}
+.registerCont{
+    position: relative;
+}
+.spinner{
+    position:absolute;
+    right: 0;
+    top:0;
+}
+
+.spinner2{
+    width: fit-content;
+    margin: 50px auto;
+
+}
+
+
+.errContainer{
+    position: relative;
+}
+
+.errContainer span{
+    position: absolute;
+    top:-23px;
+    font-size: 12px;
+    background-color: rgba(221, 51, 51, 0.815);
+    color: white;
+    border-radius: 5px;
+}
+
+
+.success{
+    position: relative;
+    height: 296px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
+.btnCtr{
+    /* margin-top: 277px; */
+    display: flex;
+    justify-content: end
+    
+}
+.btnCtr>button{
+ /* display: block; */
+ float: left;
+
+}
+
+
+
+
+@media only screen and (max-width: 607px) {
+    
+      form{
+          width:100%;
+        }
+
+  }

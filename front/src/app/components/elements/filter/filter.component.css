@@ -1,0 +1,100 @@
+/* menu1 */
+.menu1 {
+    position: relative;
+    list-style: none;
+    width: fit-content;
+    padding:0
+
+}
+
+.menu1 li{
+    float: left;
+    padding-right: 20px;
+    padding-left: 10px;
+    opacity: 0.5;
+
+}
+
+.menu1 li:hover{
+    opacity: 1;
+    cursor: pointer;
+    background-color: gold;
+}
+.cont1{
+    display: block;
+}
+
+
+.cont1{
+    display: block;
+}
+
+/* menu2 */
+.cont2{
+    display:none;
+    background-color: rgba(255, 215, 0,0.5);
+
+}
+
+.menu2{
+    display:none;
+    list-style: none;   
+    padding: 0;
+}
+
+.cont2>label{
+   display: block;
+   width: fit-content;
+   height: 24px;
+   margin: 0;
+   line-height: 24px;
+   margin: 0 auto;
+   padding: 0;
+}
+
+
+.cont2>label:hover~ul{
+    display: block;  
+    cursor: pointer;
+}
+
+.menu2:hover{
+    display: block;  
+    cursor: pointer;
+
+}
+.menu2>li:hover{
+   opacity: 0.5;
+   width:100%;
+}
+
+.cont2>ul>li{
+    background-color: gold;
+    padding-left: 15px;
+}
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+ @media only screen and (max-width: 990px) {
+   .cont1{
+       display: none;
+   }
+   .cont2{
+       display: block;
+
+   }
+
+}
+
+
+
+
+
+
+

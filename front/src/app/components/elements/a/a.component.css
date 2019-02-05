@@ -1,0 +1,82 @@
+.main{
+    height: 100vh;
+    background-color: rgba(250, 244, 209, 0.575);
+  
+}
+
+form{
+    margin: 10px;
+    height: 248px;
+
+}
+
+
+
+.main>div{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    height:80%
+}
+
+
+
+.message>div>h3{
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    text-shadow: 1px 1px black;
+    font-size: 40px;
+    background-color: rgba(34, 122, 255,0.7);
+
+    
+}
+
+.message:hover{
+    width: 94%;;
+    height: 20vh;
+    border: 5px solid rgb(173, 216, 230);
+    border-radius: 5px 5px 5px 5px;
+    margin: 0 auto;
+    cursor: pointer;
+
+}
+
+.message{
+    width: 94%;
+    height: 20vh;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0 auto;
+    box-shadow: 0px 3px 7px #bd9797;
+}
+
+mat-form-field{
+    display: block;
+}
+.start{
+    background: url('http://localhost:3000/images/bg/loginwelcomeimage.jpg') center;
+    background-size: cover;
+    height: 100%;
+    border-radius: 5px 5px 5px 5px;
+
+
+
+}
+
+.resume{
+    background: url('http://localhost:3000/images/bg/loginpageimage1.jpg') center;
+
+    background-size: cover;
+    height: 100%;
+    border-radius: 5px 5px 5px 5px;
+
+}
+
+
+.errContainer span{
+    font-size: 12px;
+    background-color: rgba(221, 51, 51, 0.815);
+    color: white;
+    border-radius: 5px;
+}
+

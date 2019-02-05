@@ -1,0 +1,28 @@
+.main{
+    height: 100vh;
+    background-color: hsl(180, 48%, 50%);
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main>div{
+    display: flex;
+    height:60vh;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.statisticsCont>p{
+    text-align: center;
+}
+
+.notificationCont{
+    padding:15px;
+
+}
+
+div>img{
+    border-radius: 5px;
+    box-shadow: 0px -1px 2px rgb(102, 136, 212);
+}

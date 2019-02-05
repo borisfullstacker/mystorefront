@@ -1,0 +1,36 @@
+<!-- <h1 mat-dialog-title>Favorite Animal</h1> -->
+<div mat-dialog-content>
+
+  <h3>Amount</h3>
+  <div class="mainCont">
+    <div class=" clearfix">
+      <div class="imgCont">
+        <img [src]='data.data.picture' />
+      </div>
+      <div class="textCont">
+        <p>{{data.data.name}}</p>
+        <p>{{data.data.price}}</p>
+      </div>
+    </div>
+    <div class="btnCont">
+      <form>
+        <p>
+          <input type="number" id="name" name="name" class="form-control"  min="1" max="50" [(ngModel)]="quantity"  #name="ngModel" required>
+        </p>       
+        <button [hidden]="name.invalid|| quantity<1 || quantity>50" mat-flat-button color="warn" (click)="addProduct($event)">Add!</button>
+        <div *ngIf="name.invalid && (name.dirty || name.touched) && !quantity===0 " class="alert alert-info">
+            Quantity required
+        </div>
+        <div *ngIf="quantity<1" class="alert alert-info">
+            Minimum is 1
+        </div>
+        <div *ngIf="quantity>50" class="alert alert-info">
+            Maximum is 50
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+</div>

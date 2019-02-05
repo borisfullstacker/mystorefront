@@ -1,0 +1,14 @@
+<header class="page-header">
+    <h3>My <small>store </small></h3>
+   
+    <div class="userdata">
+        <p>Hello</p>
+        <p *ngIf=!userDetails>Guest</p>
+        <p><span>{{userDetails.name}}</span>&nbsp;<span>{{userDetails.lastname}}</span></p>
+    </div>
+    
+    <div  *ngIf="showLogout" class="logout" (click)="logout()">
+        Log Out
+    </div>
+
+    </header>

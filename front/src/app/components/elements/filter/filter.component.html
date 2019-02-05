@@ -1,0 +1,21 @@
+
+<div class="cont1">
+   <ul  class="clearfix menu1">
+      <li  (click)="getAll()">All</li>
+      <li *ngFor="let category of categoryList" (click)="getCategoryById(category)">
+         {{category.name}}
+      </li>
+   </ul>
+</div>
+
+
+
+<div class="cont2">
+    <label class="fas fa-bars" > Categories </label>
+     <ul  class="clearfix menu2" >
+            <li  (click)="getAll()">All</li>
+            <li *ngFor="let category of categoryList" (click)="getCategoryById(category)">
+               {{category.name}}
+            </li>
+    </ul>
+</div>

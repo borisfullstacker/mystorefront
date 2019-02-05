@@ -1,0 +1,56 @@
+<div class="container" *ngIf='!showFinal && !auth'>
+  <div>
+    <!-- search cart -->
+    <mat-form-field  *ngIf="!order" class="example-full-width">
+      <input matInput #inp placeholder="Search product" [(ngModel)]="productToSearch">
+    </mat-form-field>
+    <!-- search receipt -->
+    <mat-form-field  *ngIf="order" class="example-full-width"> 
+        <input  matInput placeholder="Search cart" [(ngModel)]="productToMark">
+    </mat-form-field>
+    <button mat-button *ngIf="!order" (click)="search()">Search</button>
+  </div>
+  <div class="row box">
+    <div class="col-lg-4">
+      <span class="closeCont fas fa-angle-left"  *ngIf="!order" (click)=close()></span>
+      <app-cart (messageEvent)="receiveBoolFromChild($event)" (messageEventAdmin)="authenticateAdmin($event)" [productToMark]="productToMark"></app-cart>
+    </div>
+    <div [class]="orderClass"  >
+        <span class="openCont fas fa-angle-right" *ngIf="showIcon && !order" (click)=open()></span>
+        <app-filter    *ngIf="!order"></app-filter>
+        <app-products  *ngIf="!order"  [showEditBtn]='auth'></app-products>
+        <app-purchase  (messageEvent)="showFinalPage($event)"  *ngIf="order"></app-purchase>
+    </div>
+  </div>
+
+</div>
+<div class="container" *ngIf=showFinal>
+  <app-downloadorder></app-downloadorder>
+</div>
+
+<!-- admin -->
+<div class="container" *ngIf="auth">
+    <div>
+        <!-- search cart -->
+        <mat-form-field  *ngIf="!order" class="example-full-width">
+          <input #inp matInput placeholder="Search product" [(ngModel)]="productToSearch">
+        </mat-form-field>
+        <button mat-button *ngIf="!order" (click)="search()">Search</button>
+
+      </div>
+     <div class="row box">
+        <div  [class]="transition" >
+          <span class="closeCont fas fa-minus-circle"  *ngIf="!adminIcon" (click)=hideAdmin()></span>
+          <app-admin></app-admin>
+       </div>
+        <div class="col-lg-12">
+            <span class="openCont fas fa-plus-circle" *ngIf="adminIcon" (click)="showAdmin()"></span>
+            <app-filter ></app-filter>
+            <app-products (activateAdmin)=activateAdmin()  [showEditBtn]='auth'></app-products>
+        </div>
+
+</div>
+</div>
+
+
+

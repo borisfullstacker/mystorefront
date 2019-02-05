@@ -1,0 +1,20 @@
+
+<div class="mainCont">
+  {{SearchMsg}}
+  <div  *ngFor="let product of products" >
+    <div class="clearfix">
+        <div class="imgCont">
+           <img [src]='product.picture'/> 
+        </div>
+        <div class="textCont">
+          <p>{{product.name}}</p>
+          <p>{{product.price}}$</p>
+       </div>
+    </div>
+      <div class="btnCont ">
+        <button mat-flat-button color="accent" *ngIf="!isShown" (click)="openDialog(product)">Add Me!</button>
+        <button mat-flat-button color="warn" *ngIf="isShown" (click)="sendDataToAppAdmin(product)">Edit</button>
+
+      </div>
+  </div>
+</div>

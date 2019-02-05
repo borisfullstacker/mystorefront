@@ -1,0 +1,54 @@
+<p class="adminHeader">
+ Edit Panel
+</p>
+<form  [formGroup]="FormGroup"  (ngSubmit)="submit()">
+ 
+    <mat-form-field>
+        <input  type="text" matInput placeholder="Repeat Password" placeholder="Product Name" formControlName="name"  />
+    </mat-form-field>
+    <p  class="errContainer">
+        <span>{{nameMsg}}</span> 
+     </p>
+
+    <label style="display: block;" for="productid">product id (automated)</label>
+    <mat-form-field>
+        <input  readonly type="text" id="productid" matInput placeholder="Repeat Password" placeholder="product id" formControlName="id" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <input  type="number" min="1" matInput placeholder="Price" placeholder="Product Price" formControlName="price"  />
+    </mat-form-field>
+
+    <mat-form-field>
+        <input  type="text" matInput placeholder="category"   formControlName="category" list="categoryList">
+         <datalist id="categoryList">
+          <select class="selectbox" placeholder="category" >
+            <option value="" selected>  </option>
+            <option *ngFor='let itemcategory of categories' [value]="itemcategory.name">
+                        {{itemcategory.name}}
+            </option>
+         </select>
+        </datalist>
+    </mat-form-field>
+    <p  class="errContainer">
+       <span>{{categoryMsg}}</span> 
+    </p>
+
+      
+    <mat-form-field>
+        <input  type="text" matInput placeholder="picture" placeholder="Picture Url" formControlName="picture"  />
+    </mat-form-field>
+    <p  class="errContainer">
+        <span>{{urlMsg}}</span> 
+     </p>
+ 
+    <p>
+        <button mat-stroked-button type="button" (click)="cleanForm()">New Form</button>
+        <button mat-stroked-button color='primary'>Save</button>
+      </p>
+      <p  class="errContainer">
+        <span *ngIf="submitted">Make sure that all fields are valid</span>
+      </p>
+
+
+</form>
